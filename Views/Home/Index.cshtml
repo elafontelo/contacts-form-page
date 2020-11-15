@@ -1,0 +1,59 @@
+﻿@model ContactsApp.Models.Contacts
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<h2>Contacts Submission Page</h2>
+
+@using (Html.BeginForm("ContactForm", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container form-horizontal">
+        <h4>Personal Info</h4>
+        <hr />
+
+        <div class="form-group" style="margin-left: 25px">
+
+            @Html.TextBoxFor(model => model.firstName, new { @class = "form-control", @placeholder = "First Name" })
+            @Html.ValidationMessageFor(model => model.firstName, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group" style="margin-left: 25px">
+            @Html.TextBoxFor(model => model.lastName, new { @class = "form-control", @placeholder = "Last Name" })
+            @Html.ValidationMessageFor(model => model.lastName, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group" style="margin-left: 25px">
+            @Html.TextBoxFor(model => model.address, new { @class = "form-control", @placeholder = "Address" })
+        </div>
+
+        <div class="form-group" style="margin-left: 25px">
+            @Html.TextBoxFor(model => model.state, new { @class = "form-control", @placeholder = "State" })
+        </div>
+
+        <div class="form-group" style="margin-left: 25px">
+            @Html.TextBoxFor(model => model.country, new { @class = "form-control", @placeholder = "Country" })
+        </div>
+
+        <div class="form-group" style="margin-left: 25px">
+            @Html.TextBoxFor(model => model.zipCode, new { @class = "form-control", @placeholder = "Zip Code" })
+        </div>
+
+        <div class="form-group" style="margin-left: 25px">
+            @Html.TextBoxFor(model => model.phoneNumber, new { @class = "form-control", @placeholder = "Phone Number" })
+        </div>
+
+        <div class="form-group" style="margin-left: 25px">
+            @Html.TextAreaFor(model => model.notes, new { @class = "form-control", @placeholder = "Notes" })
+        </div>
+
+        <input type="submit" value="Submit" class="btn btn-default form-group" style="margin-left: 125px;" />
+    </div>
+
+}
