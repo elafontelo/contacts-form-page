@@ -14,11 +14,23 @@ namespace ContactsApp.Models
         [Required]
         [Display(Name = "Last Name")]
         public string lastName { get; set; }
+        [Required]
+        [Display(Name ="Address")]
         public string address { get; set; }
+        [Required]
+        [Display(Name = "State")]
         public string state { get; set; }
+        [Required]
+        [Display(Name = "Country")]
         public string country { get; set; }
-        public int? zipCode { get; set; }
+        [Required]
+        [Display(Name = "Zip Code")]
+        public int zipCode { get; set; }
+        [Required]
+        [Display(Name = "Phone Number")]
         public string phoneNumber { get; set; }
+        [Display(Name = "Notes")]
+        [StringLength(250, MinimumLength = 0)]
         public string notes { get; set; }
 
     }
